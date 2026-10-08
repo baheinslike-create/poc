@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html><head><meta name="referrer" content="no-referrer"></head>
+<body><pre id="o">Rodando...</pre>
+<script>
+fetch('https://streamplaces.live/v1/streamer/checkout/pix', {
+  method: 'POST',
+  credentials: 'include',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ planSlug: 'basic', days: 1 })
+})
+.then(r => r.text())
+.then(t => document.getElementById('o').textContent = 'Status: ' + t)
+.catch(e => document.getElementById('o').textContent = 'BLOCK: ' + e.message);
+</script></body></html>
